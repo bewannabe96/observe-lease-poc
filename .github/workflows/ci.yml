@@ -1,0 +1,11 @@
+name: ci
+# 이 회차가 검사한 merge 커밋을 이름 끝에 박는다. develop 배포가 「같은 tree 가 이미 통과했나」를 이것으로 가린다.
+run-name: ${{ github.event.pull_request.title }} · merge ${{ github.sha }}
+on:
+  pull_request:
+    branches: [develop]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - run: sleep 20 && echo "전체 시험 통과 (가짜)"
